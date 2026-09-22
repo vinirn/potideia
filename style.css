@@ -54,6 +54,20 @@ body{font-size:11px;line-height:1.8}.hud{gap:18px}.mission,.round{font-size:9px}
 @media(max-width:650px){.resources{width:auto;padding:12px 4px}.resources b{font-size:clamp(15px,5.1vw,25px);line-height:1.8}.resources small{font-size:clamp(4px,1.2vw,6px)}.resources progress{width:calc(100% - 8px);margin:6px 4px 2px}.mission b{font-size:29px}.city-card{top:168px}.actions{top:278px}.map-stage{top:365px}}
 @media(max-width:650px){.resources{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:10px;padding:12px 6px}.resources div:nth-child(3){border-right:0}.resources b{font-size:clamp(21px,6vw,26px);line-height:1.5}.resources small{font-size:6px}.city-card{top:264px}.actions{top:374px}.play-area{height:1110px}.map-stage{top:462px}}
 
+.intro-dialog{width:min(920px,calc(100vw - 28px));max-height:calc(100dvh - 28px);padding:0;border:1px solid #ffe08788;border-radius:18px;background:#171b32;color:var(--ink);box-shadow:0 24px 100px #000a;overflow:auto}
+.intro-dialog::backdrop{background:#080e20d9;backdrop-filter:blur(5px)}
+.intro-dialog[open]{display:grid;grid-template-columns:minmax(180px,36%) 1fr}
+.intro-portrait{min-height:420px;background:radial-gradient(ellipse at 50% 35%,#6b4f77,#202b44 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;overflow:hidden}
+.intro-portrait-art{position:relative;width:100%;aspect-ratio:1;flex:none}
+.intro-portrait-art::after{content:'';position:absolute;inset:0;background:url('assets/characters/npc-atlas-v5.png') 50% 0%/500% 200% no-repeat;clip-path:inset(0 10% 0 3%);filter:drop-shadow(0 10px 20px #0005)}
+.intro-guide-name{margin:0;padding:0 10px;color:var(--pink);font-size:11px;line-height:1.8;text-align:center}
+.intro-copy{padding:clamp(22px,4vw,42px);display:flex;flex-direction:column;justify-content:center;gap:14px}
+.intro-copy h1{margin:0;color:var(--yellow);font-size:clamp(16px,2vw,24px);line-height:1.7}
+.intro-copy p:not(.eyebrow){margin:0;font-size:clamp(9px,1vw,12px);line-height:2}
+#intro-understood{align-self:flex-start;min-width:180px;margin-top:8px;padding:14px 22px;border:0;border-radius:8px;background:var(--yellow);color:#211a30;font-size:12px;box-shadow:0 3px 0 #8f6337}
+#intro-understood:focus-visible{outline:3px solid var(--cyan);outline-offset:4px}
+@media(max-width:650px){.intro-dialog[open]{grid-template-columns:1fr}.intro-portrait{min-height:0;padding:12px 0 16px;gap:10px}.intro-portrait-art{width:200px}.intro-guide-name{font-size:12px}.intro-copy{padding:20px;gap:10px}.intro-copy h1{font-size:15px;line-height:1.6}.intro-copy p:not(.eyebrow){font-size:9px;line-height:1.8}#intro-understood{width:100%;font-size:11px}}
+
 /* Keep the RN map slightly left-aligned while preserving its responsive bounds. */
 .map-stage{transform:translateX(-2.5%)}
 .map-stage:focus, .map-stage:focus-visible{outline:none}
@@ -145,3 +159,9 @@ body{font-size:11px;line-height:1.8}.hud{gap:18px}.mission,.round{font-size:9px}
   .dialog-copy h2 { margin-bottom:8px; }
   .institution-card { margin-bottom:8px; }
 }
+
+/* Hide the neighboring atlas cell on every Damásio portrait. */
+.guide-portrait{position:relative;overflow:hidden;background-image:none}
+.guide-portrait::after{content:'';position:absolute;inset:0;background:url('assets/characters/npc-atlas-v5.png') 50% 0%/500% 200% no-repeat;clip-path:inset(0 10% 0 0)}
+.damasio-portrait{clip-path:inset(0 10% 0 0)}
+.potengi-portrait{clip-path:inset(0 4% 0 0)}

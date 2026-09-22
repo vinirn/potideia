@@ -6,6 +6,8 @@ Jogo cooperativo 2D, em HTML e JavaScript, sobre os ecossistemas de inovação d
 
 Não há servidor, instalação ou comando para executar. Basta abrir `index.html` no navegador (inclusive com duplo clique). A malha do mapa é carregada como um script local, compatível com o protocolo `file://`.
 
+Ao abrir o jogo, o Prof. Damásio apresenta a missão de construir um parque científico e tecnológico em Mossoró por meio de parcerias. O botão **Entendi** leva ao mapa. A apresentação reaparece ao reiniciar a partida; abrir o jogo novamente não apaga o progresso salvo.
+
 O progresso da partida — visitas, indicadores, cidade selecionada e diário — fica salvo apenas no navegador, em `localStorage`. Use **Reiniciar jogo**, em destaque no cabeçalho, para começar novamente após confirmar. O logotipo volta ao mapa sem apagar o progresso.
 
 ## Mecânica da V1
@@ -92,4 +94,4 @@ Polos, sedes e eixos territoriais: [Edital nº 8/2026 da FAPERN — Programa Ra�
 
 Mossoró liga-se a Assu, que se conecta a Angicos. São Paulo do Potengi chega a Natal passando por Macaíba. Não há ligação direta Mossoró–Angicos, Natal–São Paulo do Potengi, Caicó–Natal ou Caicó–Pau dos Ferros. Rotas só aparecem após uma parceria. Na malha do IBGE, Açu é apresentado como Assu.
 
-São 14 destinos. Cada parceria vale uma fração igual do indicador correspondente: Ciência e Cidadania têm 2 destinos, Tecnologia e Meio Ambiente têm 3, Recursos tem 4. Os percentuais acumulados são calculados a partir das quantidades e arredondados para exibição, sem acumular erros. Partidas anteriores preservam suas parcerias, com percentuais recalculados para a rede ampliada. Os cinco retratos de Natal e dos novos destinos ficam em `assets/characters/npc-expansion.png`.
+São 14 destinos. Cada parceria vale uma fração igual do indicador correspondente: Ciência e Cidadania têm 2 destinos, Tecnologia e Meio Ambiente têm 3, Recursos tem 4. Os percentuais acumulados são calculados a partir das quantidades e arredondados para exibição, sem acumular erros. Partidas anteriores preservam suas parcerias, com percentuais recalculados para a rede ampliada. Currais Novos usa `assets/characters/npc-expansion.png`; Assu, Natal, Macaíba, Parnamirim, João Câmara e Canguaretama usam retratos individuais em `assets/characters/`.

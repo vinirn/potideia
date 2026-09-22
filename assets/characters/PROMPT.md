@@ -1,5 +1,35 @@
 # Retratos dos personagens
 
+## Regra de contorno para novos retratos
+
+Seguir o acabamento do professor Damásio em `npc-atlas-v5.png`: a silhueta é definida pelas cores da pele, do cabelo e da roupa, com pequenos pixels de luz quente nas bordas. Não traçar uma linha escura contínua em volta do corpo, do rosto, das mãos ou dos objetos, nem desenhar linhas pretas grossas nas dobras. Manter pixels quadrados visíveis e anatomia humana natural. Essa correção foi aplicada aos retratos individuais de Assu, Macaíba, Natal e Parnamirim.
+
+## Roupas leves: npc-parnamirim-v2.png, npc-joao-camara-v2.png e npc-canguaretama-v2.png
+
+Retratos individuais com fundo transparente, gerados pela ferramenta integrada image_gen. Clara, Rafa e Lu mantêm os rostos, objetos e cores que os identificam, mas não usam mais colete, jaqueta ou moletom. As roupas são camisas leves de manga curta, adequadas ao clima do Rio Grande do Norte. Clara também passou a ter cabelo liso, mantendo o castanho escuro original.
+
+Instrução para futuras versões: evitar jaquetas, coletes, moletons e outras camadas pesadas nos NPCs; preservar a estética pixel art retrô dos anos 80 e as proporções humanas naturais. Clara usa camisa clara e segura uma muda; Rafa usa polo laranja e carrega caderno azul; Lu usa camisa verde-azulada e segura caderno e caneta. Fundo transparente, sem texto, marcas nem cenário.
+
+## Natal e Macaíba: npc-natal-v2.png e npc-macaiba-v2.png
+
+Retratos individuais com fundo transparente, gerados pela ferramenta integrada image_gen a partir dos respectivos quadros de `npc-expansion.png`. Lia e Damásio em `npc-atlas-v5.png` serviram de referência para proporções faciais adultas, luz dourada e qualidade de acabamento.
+
+Instrução para futuras versões: manter pixel art retrô dos anos 80, com pixels quadrados visíveis, blocos de cor e pontilhamento deliberado, mas rostos humanos mais realistas que cartunescos. Evitar olhos exagerados, contornos vetoriais grossos e gradientes lisos. Natal mantém o consultor de camisa azul-clara, crachá sem texto e pasta; Macaíba mantém o professor grisalho de camisa bege e caderno verde. Retratos isolados da cintura para cima, sem marcas, texto ou cenário.
+
+## Engenheira de Assu: npc-assu-v2.png
+
+Retrato individual com fundo transparente, gerado pela ferramenta integrada image_gen a partir da engenheira no quinto quadro de `npc-expansion.png`. A arte usa Lia e Damásio em `npc-atlas-v5.png` como referências de enquadramento e luz, sem alterar os demais personagens do atlas de expansão.
+
+Instruções obrigatórias para futuras versões:
+
+- Usar estética de jogo de fliperama dos anos 80, com pixels quadrados nítidos e visíveis, bordas em degraus e blocos de cor bem definidos.
+- Usar paleta limitada e pontilhamento de pixels (*dithering*) intencional; evitar gradientes lisos, suavização de bordas, aparência vetorial e pintura fotorrealista.
+- Aproximar o realismo dos rostos de Lia (Mossoró) e Damásio (Angicos): proporções humanas adultas, olhos de tamanho natural, nariz e mandíbula plausíveis, sorriso discreto, mãos anatomicamente coerentes e luz dourada contida. Evitar traços de desenho animado ou anime.
+- Preservar a engenheira adulta, capacete amarelo, camisa azul, painel solar seguro com as duas mãos, retrato isolado da cintura para cima e fundo transparente.
+- Manter todo o capacete, mãos e painel dentro do quadro; não incluir texto, marcas, cenário nem outros personagens.
+
+Prompt final: redesenhar a engenheira solar de Assu como retrato individual em pixel art de fliperama dos anos 80, com pixels quadrados nítidos, paleta limitada, blocos de cor, pontilhamento deliberado e luz dourada nas bordas; conferir ao rosto proporções naturais de uma profissional brasileira adulta, sombreamento e textura detalhados como os retratos de Lia e Damásio, sem olhos grandes ou sorriso cartunesco; preservar pele morena, capacete amarelo, cabelo escuro preso, camisa de trabalho azul-marinho e painel solar azul seguro com as duas mãos; fundo transparente, sem cenário, marca ou texto.
+
 ## Expansão: npc-expansion.png
 
 Gerado pela ferramenta integrada image_gen. Cinco retratos em uma fileira: Natal (consultor Sebrae), Parnamirim (articuladora ELI Agro), Currais Novos (cientista de saúde), Macaíba (professor de ciências agrárias) e Assu (engenheira solar). Personagens fictícios, sem marcas. O atlas original e Damásio foram preservados.

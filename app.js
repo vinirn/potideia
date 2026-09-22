@@ -28,13 +28,13 @@ const cities = {
   'Caicó': { pole: 'SERIDÓ', host: 'UERN CAICÓ', indicator: 'citizenship', label: 'CIDADANIA', npc: 'DONA BIA', speech: '“Serviço público melhora quando quem usa também inventa junto.”', scene: 'caico', adjacent: ['Santa Cruz', 'Currais Novos'], tags: ['CIDADANIA', 'UERN'] },
   'Santa Cruz': { pole: 'TRAIRI', host: 'UFRN SANTA CRUZ', indicator: 'territory', label: 'MEIO AMBIENTE', npc: 'DR. TOM', speech: '“Saúde, universidade e comunidade formam uma equipe muito mais forte.”', scene: 'santa', adjacent: ['Caicó', 'São Paulo do Potengi', 'Canguaretama', 'Currais Novos'], tags: ['SAÚDE', 'UFRN'] },
   'São Paulo do Potengi': { pole: 'POTENGI', host: 'IFRN SÃO PAULO DO POTENGI', indicator: 'technology', label: 'TECNOLOGIA', npc: 'MAYA, INVENTORA', speech: '“Uma ideia protegida e compartilhada com justiça pode viajar longe.”', scene: 'potengi', adjacent: ['Angicos', 'Santa Cruz', 'Macaíba'], tags: ['PI', 'TECNOLOGIA'] },
-  'João Câmara': { pole: 'MATO GRANDE', host: 'IFRN JOÃO CÂMARA', indicator: 'economy', label: 'RECURSOS', npc: 'RAFA, ARTICULADOR', speech: '“Quando produtores e empresas se reconhecem como rede, o valor fica no território.”', scene: 'camara', adjacent: ['Natal', 'Mossoró'], tags: ['ARRANJOS', 'IFRN'] },
-  'Canguaretama': { pole: 'AGRESTE + LITORAL SUL', host: 'IFRN CANGUARETAMA', indicator: 'economy', label: 'RECURSOS', npc: 'LU, PESQUISADORA', speech: '“Formação é investimento de longo prazo: cada pessoa pode abrir um novo caminho.”', scene: 'canguaretama', adjacent: ['Santa Cruz', 'Natal', 'Parnamirim'], tags: ['FORMAÇÃO', 'PESQUISA'] },
-  'Natal': { pole: 'GRANDE NATAL', host: 'SEBRAE RN', indicator: 'citizenship', label: 'CIDADANIA', npc: 'ANDRÉ, CONSULTOR', portrait: 0, speech: '“Boas-vindas ao Sebrae! Apoiamos pequenos negócios com orientação e capacitação. Vamos aproximar empreendedores e pesquisa para transformar ideias em oportunidades.”', scene: 'natal', adjacent: ['João Câmara', 'Canguaretama', 'Macaíba', 'Parnamirim'], tags: ['EMPREENDEDORISMO', 'REDE'] },
-  'Parnamirim': { pole: 'GRANDE NATAL', host: 'ELI AGRO', indicator: 'economy', label: 'RECURSOS', npc: 'CLARA, ARTICULADORA', portrait: 1, speech: '“O ELI Agro aproxima produtores, pesquisadores e empreendedores. Juntos, podemos desenvolver soluções para fortalecer o agronegócio potiguar.”', scene: 'parnamirim', adjacent: ['Natal', 'Macaíba', 'Canguaretama'], tags: ['AGRO', 'INOVAÇÃO'] },
+  'João Câmara': { pole: 'MATO GRANDE', host: 'IFRN JOÃO CÂMARA', indicator: 'economy', label: 'RECURSOS', npc: 'RAFA, ARTICULADOR', portraitImage: 'assets/characters/npc-joao-camara-v2.png', speech: '“Quando produtores e empresas se reconhecem como rede, o valor fica no território.”', scene: 'camara', adjacent: ['Natal', 'Mossoró'], tags: ['ARRANJOS', 'IFRN'] },
+  'Canguaretama': { pole: 'AGRESTE + LITORAL SUL', host: 'IFRN CANGUARETAMA', indicator: 'economy', label: 'RECURSOS', npc: 'LU, PESQUISADORA', portraitImage: 'assets/characters/npc-canguaretama-v2.png', speech: '“Formação é investimento de longo prazo: cada pessoa pode abrir um novo caminho.”', scene: 'canguaretama', adjacent: ['Santa Cruz', 'Natal', 'Parnamirim'], tags: ['FORMAÇÃO', 'PESQUISA'] },
+  'Natal': { pole: 'GRANDE NATAL', host: 'SEBRAE RN', indicator: 'citizenship', label: 'CIDADANIA', npc: 'ANDRÉ, CONSULTOR', portraitImage: 'assets/characters/npc-natal-v2.png', speech: '“Boas-vindas ao Sebrae! Apoiamos pequenos negócios com orientação e capacitação. Vamos aproximar empreendedores e pesquisa para transformar ideias em oportunidades.”', scene: 'natal', adjacent: ['João Câmara', 'Canguaretama', 'Macaíba', 'Parnamirim'], tags: ['EMPREENDEDORISMO', 'REDE'] },
+  'Parnamirim': { pole: 'GRANDE NATAL', host: 'ELI AGRO', indicator: 'economy', label: 'RECURSOS', npc: 'CLARA, ARTICULADORA', portraitImage: 'assets/characters/npc-parnamirim-v2.png', speech: '“O ELI Agro aproxima produtores, pesquisadores e empreendedores. Juntos, podemos desenvolver soluções para fortalecer o agronegócio potiguar.”', scene: 'parnamirim', adjacent: ['Natal', 'Macaíba', 'Canguaretama'], tags: ['AGRO', 'INOVAÇÃO'] },
   'Currais Novos': { pole: 'SERIDÓ', host: 'SERIHUB', indicator: 'technology', label: 'TECNOLOGIA', npc: 'DRA. ALICE', portrait: 2, speech: '“No SeriHub, incubamos soluções em saúde. Pesquisa, tecnologia e empreendedorismo podem criar novas formas de cuidar das pessoas.”', scene: 'currais', adjacent: ['Caicó', 'Santa Cruz', 'Angicos'], tags: ['SAÚDE', 'INCUBAÇÃO'] },
-  'Macaíba': { pole: 'GRANDE NATAL', host: 'EAJ', indicator: 'territory', label: 'MEIO AMBIENTE', npc: 'PROF. MIGUEL', portrait: 3, speech: '“Na Escola Agrícola de Jundiaí, ensino e pesquisa se encontram no campo. Vamos cultivar soluções para produzir com responsabilidade ambiental.”', scene: 'macaiba', adjacent: ['São Paulo do Potengi', 'Natal', 'Parnamirim'], tags: ['CIÊNCIAS AGRÁRIAS', 'UFRN'] },
-  'Assu': { pole: 'VALE DO AÇU', host: 'ENERGIA SOLAR', indicator: 'economy', label: 'RECURSOS', npc: 'ENGENHEIRA DE ENERGIA', portrait: 4, speech: '“Nossa empresa de energia solar quer investir nesta iniciativa de pesquisa. A parceria prevê avaliar o uso da Lei do Bem (Lei nº 11.196/2005), conforme a elegibilidade da empresa e do projeto aos incentivos fiscais de P&D.”', scene: 'assu', adjacent: ['Mossoró', 'Angicos'], tags: ['ENERGIA SOLAR', 'LEI DO BEM'] }
+  'Macaíba': { pole: 'GRANDE NATAL', host: 'EAJ', indicator: 'territory', label: 'MEIO AMBIENTE', npc: 'PROF. MIGUEL', portraitImage: 'assets/characters/npc-macaiba-v2.png', speech: '“Na Escola Agrícola de Jundiaí, ensino e pesquisa se encontram no campo. Vamos cultivar soluções para produzir com responsabilidade ambiental.”', scene: 'macaiba', adjacent: ['São Paulo do Potengi', 'Natal', 'Parnamirim'], tags: ['CIÊNCIAS AGRÁRIAS', 'UFRN'] },
+  'Assu': { pole: 'VALE DO AÇU', host: 'ENERGIA SOLAR', indicator: 'economy', label: 'RECURSOS', npc: 'ENGENHEIRA DE ENERGIA', portraitImage: 'assets/characters/npc-assu-v2.png', speech: '“Nossa empresa de energia solar quer investir nesta iniciativa de pesquisa. A parceria prevê avaliar o uso da Lei do Bem (Lei nº 11.196/2005), conforme a elegibilidade da empresa e do projeto aos incentivos fiscais de P&D.”', scene: 'assu', adjacent: ['Mossoró', 'Angicos'], tags: ['ENERGIA SOLAR', 'LEI DO BEM'] }
 };
 
 const institutions = {
@@ -310,13 +310,20 @@ function characterArt(city) {
   const portrait = document.createElement('div');
   portrait.className = 'npc-portrait';
   portrait.style.backgroundPosition = `${(index % 5) * 25}% ${Math.floor(index / 5) * 100}%`;
-  if (city.portrait !== undefined) {
+  if (city.portraitImage) {
+    portrait.style.backgroundImage = `url('${city.portraitImage}')`;
+    portrait.style.backgroundSize = 'contain';
+    portrait.style.backgroundPosition = 'center';
+    portrait.style.imageRendering = 'pixelated';
+  } else if (city.portrait !== undefined) {
     portrait.style.backgroundImage = "url('assets/characters/npc-expansion.png')";
     portrait.style.backgroundSize = '500% 100%';
     portrait.style.width = 'min(60%, 36dvh)';
     portrait.style.aspectRatio = '3 / 5';
     portrait.style.backgroundPosition = `${city.portrait * 25}% 0%`;
   }
+  if (state.selected === 'Angicos') portrait.classList.add('damasio-portrait');
+  if (state.selected === 'São Paulo do Potengi') portrait.classList.add('potengi-portrait');
   portrait.setAttribute('role', 'img');
   portrait.setAttribute('aria-label', `Retrato de ${city.npc} em pixel art`);
   const caption = document.createElement('span');
@@ -451,6 +458,16 @@ document.querySelector('.partnership-choices').addEventListener('keydown', event
   partnershipChoices[(index + 1) % partnershipChoices.length].focus();
 });
 document.querySelector('.logo').addEventListener('click', event => { event.preventDefault(); document.getElementById('location-dialog').close(); focusMap(); });
+const introDialog = document.getElementById('intro-dialog');
+function showIntroduction() {
+  introDialog.showModal();
+  document.getElementById('intro-understood').focus();
+}
+introDialog.addEventListener('cancel', event => event.preventDefault());
+document.getElementById('intro-understood').addEventListener('click', () => {
+  introDialog.close();
+  focusMap();
+});
 document.getElementById('restart-game').addEventListener('click', () => {
   if (!window.confirm('Reiniciar a partida? As visitas e os pontos desta partida serão apagados.')) return;
   stopJourney();
@@ -458,7 +475,7 @@ document.getElementById('restart-game').addEventListener('click', () => {
   chooseCity('Mossoró');
   document.getElementById('game-status').textContent = 'Comece por Mossoró. Abra o local e escolha se deseja firmar uma parceria.';
   document.getElementById('game-status').classList.remove('victory');
-  focusMap();
+  showIntroduction();
 });
 document.addEventListener('keydown', event => {
   if (event.altKey || event.ctrlKey || event.metaKey || event.repeat || event.target.closest('input, textarea, select, [contenteditable="true"]')) return;
@@ -467,7 +484,7 @@ document.addEventListener('keydown', event => {
     return;
   }
   const dialog = document.getElementById('location-dialog');
-  if (dialog.open) return;
+  if (introDialog.open || dialog.open) return;
   const navigationKey = event.key.length === 1 ? event.key.toLowerCase() : event.key;
   if (/^[0-9]$/.test(event.key)) { event.preventDefault(); const name = Object.keys(cities)[(Number(event.key) + 9) % 10];
     if (unlockedCities().has(name)) chooseCity(name, null, true);
@@ -486,3 +503,4 @@ if (window.RN_MUNICIPIOS?.features) {
   document.getElementById('map-stage').innerHTML = '<div class="loading">ERRO: DADOS DO TABULEIRO INDISPONÍVEIS.</div>';
 }
 updateUI();
+showIntroduction();
