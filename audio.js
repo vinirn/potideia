@@ -8,7 +8,9 @@ const gameAudio = (() => {
     'Angicos': [146.83, 185, 220], 'Pau dos Ferros': [123.47, 164.81, 185],
     'Caicó': [130.81, 174.61, 220], 'Santa Cruz': [174.61, 220, 261.63],
     'São Paulo do Potengi': [146.83, 196, 246.94], 'João Câmara': [110, 138.59, 164.81],
-    'Canguaretama': [98, 130.81, 164.81], 'Natal': [164.81, 196, 246.94]
+    'Canguaretama': [98, 130.81, 164.81], 'Natal': [164.81, 196, 246.94],
+    'Parnamirim': [146.83, 174.61, 220], 'Currais Novos': [164.81, 220, 261.63],
+    'Macaíba': [130.81, 196, 246.94], 'Assu': [110, 164.81, 220]
   };
   function updateButton() {
     const button = document.getElementById('toggle-sound');
@@ -84,6 +86,7 @@ const gameAudio = (() => {
     } catch { /* Browsers without audio support keep the game playable. */ }
   }
   function effect(name, city) {
+    if (name === 'focus') { tone(660, .055, .09, 'triangle'); tone(880, .045, .055, 'triangle', .035); }
     if (name === 'step') { tone(90, .055, .11, 'triangle'); tone(180, .025, .025, 'square'); }
     if (name === 'open') { const chord = palettes[city] || palettes['Mossoró']; melody(chord.map(n => n * 2), .08); }
     if (name === 'close') melody([392, 293.66, 196], .065, .08);

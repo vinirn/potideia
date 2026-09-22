@@ -1,5 +1,13 @@
 # Retratos dos personagens
 
+## Expansão: npc-expansion.png
+
+Gerado pela ferramenta integrada image_gen. Cinco retratos em uma fileira: Natal (consultor Sebrae), Parnamirim (articuladora ELI Agro), Currais Novos (cientista de saúde), Macaíba (professor de ciências agrárias) e Assu (engenheira solar). Personagens fictícios, sem marcas. O atlas original e Damásio foram preservados.
+
+Prompt:
+
+Create one game NPC sprite atlas, exactly FIVE equally sized square cells in ONE horizontal row, canvas aspect ratio 5:1. Each cell has one friendly mature Brazilian professional from waist up, centered with generous margins. Polished retro pixel art, visible crisp pixel blocks, warm highlights, dark navy plain background, no text, no letters, no logos, no grid borders. Left to right: 1 male business consultant short dark hair, light blue dress shirt and blue lanyard with blank ID badge, holding folder; 2 female agribusiness innovation advisor brown skin, curly hair, green field vest holding seedling; 3 female health innovation scientist black skin, short natural hair, white lab coat teal shirt, tablet; 4 male agricultural professor tan skin greying hair, beige collared shirt holding notebook; 5 female solar energy engineer tan skin, yellow safety helmet, navy work shirt, holding small blue solar panel. Distinct faces and silhouettes. Exact five-cell alignment for CSS background position. No real person likeness, no corporate identifying marks. All heads and hands wholly inside own cells.
+
 ## Arte atual: npc-atlas-v5.png
 
 Ferramenta integrada image_gen. Barba um pouco mais curta; óculos azuis, cabeça careca e camisa social lisa preservados. Aplicada ao guia e ao receptor de Angicos.

@@ -14,7 +14,7 @@
         <button id="restart-game" class="restart-button" type="button">↻ Reiniciar jogo</button>
         <div class="mission"><span class="blink">●</span> ESCORE GERAL <b id="park-score">0%</b></div>
         <button id="toggle-sound" class="sound-toggle" type="button" aria-pressed="true">♫ Som ligado</button>
-        <div class="round">VISITAS <b id="round-number">0</b>/10</div>
+        <div class="round">VISITAS <b id="round-number">0</b>/<span id="round-total">14</span></div>
       </header>
 
       <section class="intro-strip">
@@ -25,13 +25,13 @@
       <nav class="keyboard-guide" aria-label="Como jogar">
         <span><kbd>↑↓←→</kbd> <kbd>WASD</kbd> Caminhar</span>
         <span><kbd>Enter</kbd> Abrir local</span>
-        <span><kbd>V</kbd> Registrar visita</span>
+        <span><kbd>←→</kbd> Escolher parceria</span>
         <span><kbd>Esc</kbd> Voltar ao mapa</span>
       </nav>
       <section class="play-area">
         <div class="map-panel scanlines">
           <div class="map-title"><i></i> RIO GRANDE DO NORTE <small>167 MUNICÍPIOS / MALHA IBGE 2024</small></div>
-          <div id="map-stage" class="map-stage">
+          <div id="map-stage" class="map-stage" tabindex="0" aria-label="Mapa de destinos. Use as setas ou WASD para caminhar e Enter para abrir o local.">
             <div class="loading">CARREGANDO TABULEIRO...</div>
           </div>
           <div class="map-key"><span>● Disponível</span><span class="key-selected">◎ Selecionada</span><span class="key-visited">● Visitada</span><span>Linhas: conexões do destino</span></div>
@@ -48,15 +48,11 @@
           <section class="resources" aria-label="Recursos da equipe">
             <div><span>⌁</span><small>CIÊNCIA</small><b id="science">0%</b><progress id="science-progress" max="100" value="0" aria-label="Ciência"></progress></div>
             <div><span>⚙</span><small>TECNOLOGIA</small><b id="technology">0%</b><progress id="technology-progress" max="100" value="0" aria-label="Tecnologia"></progress></div>
-            <div><span>♧</span><small>TERRITÓRIO</small><b id="territory">0%</b><progress id="territory-progress" max="100" value="0" aria-label="Território"></progress></div>
+            <div><span>♧</span><small>MEIO AMBIENTE</small><b id="territory">0%</b><progress id="territory-progress" max="100" value="0" aria-label="Meio Ambiente"></progress></div>
             <div><span>♥</span><small>CIDADANIA</small><b id="citizenship">0%</b><progress id="citizenship-progress" max="100" value="0" aria-label="Cidadania"></progress></div>
-            <div><span>$</span><small>ECONOMIA</small><b id="economy">0%</b><progress id="economy-progress" max="100" value="0" aria-label="Economia"></progress></div>
+            <div><span>$</span><small>RECURSOS</small><b id="economy">0%</b><progress id="economy-progress" max="100" value="0" aria-label="Recursos"></progress></div>
           </section>
 
-          <section class="actions">
-            <p class="eyebrow">ROTA DE INOVAÇÃO</p>
-            <button id="open-location" disabled><kbd>Enter</kbd> ABRIR LOCAL <small id="visit-effect">SELECIONE UMA CIDADE</small></button>
-          </section>
 
 
 
@@ -69,8 +65,6 @@
         </aside>
       </section>
 
-      <details class="journal"><summary>Diário da turma</summary><section class="log"><p class="eyebrow">DIÁRIO DA TURMA <button id="clear-notes" title="Limpar notas">×</button></p><ol id="notes"><li>AGUARDANDO PRIMEIRA ALIANÇA...</li></ol></section></details>
-      <footer><span>Seu progresso é salvo neste navegador.</span></footer>
     </main>
     <p id="game-status" class="sr-only" role="status"></p>
     <dialog id="location-dialog" class="location-dialog" aria-labelledby="dialog-city dialog-institution">
@@ -86,9 +80,16 @@
           <p id="institution-affiliation"></p>
           <a id="institution-source" target="_blank" rel="noopener noreferrer">Conhecer a instituição ↗</a>
         </section>
-        <p id="npc-name" class="npc-name">GUIA LOCAL</p>
         <p id="npc-speech" class="speech">“...”</p>
-        <button id="visit-location" class="visit-button">REGISTRAR VISITA <small>+50% NO INDICADOR</small></button>
+        <section id="partnership-menu" class="partnership-menu" aria-labelledby="partnership-question">
+          <h3 id="partnership-question">Firmar parceria?</h3>
+          <div class="partnership-choices" role="group" aria-labelledby="partnership-question">
+            <button id="partnership-yes" type="button" aria-pressed="false">Sim</button>
+            <button id="partnership-no" type="button" aria-pressed="true">Não</button>
+          </div>
+          <p id="partnership-effect"></p>
+        </section>
+        <p id="partnership-complete" class="partnership-complete" hidden>Parceria já firmada</p>
       </div>
     </dialog>
     <div class="crt-overlay" aria-hidden="true"></div>

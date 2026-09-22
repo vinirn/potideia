@@ -10,15 +10,15 @@ O progresso da partida — visitas, indicadores, cidade selecionada e diário �
 
 ## Mecânica da V1
 
-A partida começa com apenas Mossoró revelada. Registrar uma visita revela os caminhos e os destinos adjacentes daquela cidade. As cidades ainda ocultas não podem ser acessadas por clique nem por atalho. Cada local concede pontos uma única vez: +10 pontos percentuais no escore geral e +50 pontos percentuais em um indicador. Cidades já visitadas continuam abertas para consultar o diálogo. A navegação entre cidades acontece no mapa, após fechar a janela do local.
+A partida começa com apenas Mossoró revelada. Em cada local, o menu **Firmar parceria?** abre com **Não** selecionado. Escolher **Sim** concede 1/14 do escore geral e uma fração do indicador específico, conforme o número de destinos que contribuem para ele e revela os caminhos e destinos adjacentes. Escolher **Não**, fechar a janela ou pressionar Esc volta ao mapa sem conceder pontos nem revelar conexões. É possível retornar depois e decidir novamente. Cada cidade concede pontos uma única vez; parcerias já firmadas continuam abertas para consultar o diálogo. O progresso salvo anteriormente é preservado. A navegação entre cidades acontece no mapa, após fechar a janela do local.
 
 | Indicador | Limiar de vitória | Visitas que o aumentam |
 | --- | ---: | --- |
 | Ciência | 100% | Pau dos Ferros, Angicos |
-| Tecnologia | 100% | Mossoró, São Paulo do Potengi |
-| Território | 100% | Caraúbas, Santa Cruz |
+| Tecnologia | 100% | Mossoró, São Paulo do Potengi, Currais Novos |
+| Meio Ambiente | 100% | Caraúbas, Santa Cruz, Macaíba |
 | Cidadania | 100% | Caicó, Natal |
-| Economia | 100% | João Câmara, Canguaretama |
+| Recursos | 100% | João Câmara, Canguaretama, Parnamirim, Assu |
 
 A equipe vence quando todos os cinco indicadores chegam a `100%`. O escore geral chega a `100%` quando todas as visitas foram registradas.
 
@@ -27,14 +27,14 @@ A equipe vence quando todos os cinco indicadores chegam a `100%`. O escore geral
 A partida começa no mapa com **Mossoró** selecionada, sede do Parque Científico e Tecnológico em construção. A rota inicial prioritária é a rede UFERSA:
 
 1. UFERSA Mossoró — Tecnologia
-2. UFERSA Caraúbas — Território / semiárido
+2. UFERSA Caraúbas — Meio Ambiente / semiárido
 3. UFERSA Angicos — Ciência / formação avançada
 
 Os demais polos aparecem no mapa conforme as visitas revelam conexões. O progresso salvo anteriormente é preservado; as rotas reveladas são reconstruídas a partir das cidades já visitadas.
 
 ## Tabuleiro
 
-`data/RN_Municipios_2024.zip` é a malha municipal oficial do IBGE baixada para o projeto. O arquivo é preservado como fonte; `data/rn-municipios.geojson` é sua conversão de referência e `data/rn-municipios.js` é a versão incorporada pela página estática. O tabuleiro desenha os 167 municípios do RN e destaca 10 cidades jogáveis.
+`data/RN_Municipios_2024.zip` é a malha municipal oficial do IBGE baixada para o projeto. O arquivo é preservado como fonte; `data/rn-municipios.geojson` é sua conversão de referência e `data/rn-municipios.js` é a versão incorporada pela página estática. O tabuleiro desenha os 167 municípios do RN e destaca 14 cidades jogáveis.
 
 Os polos se inspiram no Programa Raízes da Inovação da FAPERN:
 
@@ -49,22 +49,22 @@ Os polos se inspiram no Programa Raízes da Inovação da FAPERN:
 | Potengi | IFRN São Paulo do Potengi |
 | Mato Grande | IFRN João Câmara |
 | Agreste e Litoral Sul | IFRN Canguaretama |
-| Terras Potiguares | IFESP Natal |
+| Terras Potiguares | Sebrae Natal |
 
 ## Arte e interface
 
-O mapa ocupa toda a largura da área de jogo. Destino, ação e indicadores aparecem em janelas semitransparentes, sem painel lateral ou lista de destinos. As cidades visitadas ficam verdes, sem check ou texto de conclusão. Os subtítulos dos destinos ainda não visitados mostram apenas o ganho de +50% no indicador específico. Os indicadores usam porcentagens, barras e cores do vermelho (0%) ao verde (100%). Todos os textos usam a fonte pixelada Press Start 2P, com tamanhos e espaçamentos adaptados aos controles, diálogos e mapa.
+O mapa ocupa toda a largura da área de jogo. Destino, ação e indicadores aparecem em janelas semitransparentes, sem painel lateral ou lista de destinos. As cidades visitadas ficam verdes, sem check ou texto de conclusão. Os subtítulos dos destinos ainda não visitados mostram apenas o ganho no indicador específico. Os indicadores usam porcentagens, barras e cores do vermelho (0%) ao verde (100%). Todos os textos usam a fonte pixelada Press Start 2P, com tamanhos e espaçamentos adaptados aos controles, diálogos e mapa.
 
-Os dez personagens têm retratos próprios em `assets/characters/npc-atlas-v5.png`, gerados pela ferramenta integrada de imagens e exibidos por uma grade CSS de 5 colunas e 2 linhas. O prompt completo está em `assets/characters/PROMPT.md`.
+Os personagens originais têm retratos próprios em `assets/characters/npc-atlas-v5.png`, gerados pela ferramenta integrada de imagens e exibidos por uma grade CSS de 5 colunas e 2 linhas. O prompt completo está em `assets/characters/PROMPT.md`.
 
-As janelas de visita destacam a instituição, seu nome completo e um link oficial. Em Angicos, o destino é a **INEAGRO CABUGI**, da UFERSA. A pesquisa e as fontes de todos os locais estão em [Instituições visitadas](data/instituicoes-fontes.md). As instituições são reais. Damásio foi incluído como professor da INEAGRO conforme orientação do usuário, em representação estilizada; as falas, rotas e recompensas são elementos ficcionais do jogo.
+As janelas de visita destacam a instituição, seu nome completo e um link oficial. Em Angicos, o destino é a **INEAGRO CABUGI**, da UFERSA. A pesquisa e as fontes de todos os locais estão em [Instituições visitadas](data/instituicoes-fontes.md). As instituições são reais, exceto a empresa genérica de energia solar de Assu, representada sem nome ou marca. O encontro do ELI Agro em Parnamirim foi escolhido para o jogo; a fonte descreve uma rede estadual. Damásio foi incluído como professor da INEAGRO conforme orientação do usuário, em representação estilizada; as falas, rotas e recompensas são elementos ficcionais do jogo.
 
 ### Controles
 
-- **Setas ou WASD:** caminhar por uma conexão revelada na direção escolhida. O destino é calculado pelas coordenadas dos pontos no mapa, em setores de 90 graus. Dentro do setor, tem prioridade a conexão mais alinhada; em empate, a mais próxima. Sem conexão naquela direção, o personagem fica parado.
+- **Setas ou WASD:** caminhar por uma conexão revelada na direção escolhida, incluindo diagonais. Uma cidade acima pode ser alcançada com a tecla para cima mesmo estando mais à esquerda ou à direita. Tem prioridade a conexão mais alinhada à direção; em empate, a mais próxima. Cidades do lado oposto ou sem caminho revelado não entram na escolha. Sem conexão naquela direção, o personagem fica parado.
 - **Enter:** abrir a cidade selecionada; quando um botão tem foco, acionar esse botão.
 - **1–9 e 0:** atalhos opcionais na ordem dos destinos definida em `app.js`; só abrem cidades reveladas.
-- **V:** registrar a visita com o diálogo aberto.
+- **Setas ou WASD no menu de parceria:** alternar entre Sim e Não; **Enter / Espaço:** confirmar a opção em foco. O padrão a cada abertura é **Não**. O antigo atalho V não firma parcerias.
 - **Esc:** fechar o diálogo.
 - **Tab / Shift+Tab:** percorrer os controles; **Enter / Espaço:** acionar o controle em foco.
 - **Mouse ou toque:** abrir cidades e acionar botões. A seleção de texto fica desabilitada na interface.
@@ -81,3 +81,15 @@ O guia Prof. Damásio aparece em uma janela ampliada no canto inferior direito, 
 ## Fonte territorial
 
 Polos, sedes e eixos territoriais: [Edital nº 8/2026 da FAPERN — Programa Raízes da Inovação](https://cdn.tecconcursos.com.br/blog/uploads/9889/40b3ddda-830c-426a-bd1a-a2385dcfe747.pdf). Malha municipal: [IBGE — Rio Grande do Norte, 2024](https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_municipais/municipio_2024/UFs/RN/).
+
+## Expansão dos destinos
+
+- Parnamirim: ELI Agro — Recursos.
+- Currais Novos: SeriHub — Tecnologia.
+- Macaíba: EAJ/UFRN — Meio Ambiente.
+- Assu: empresa de energia solar sem nome divulgado — Recursos. A NPC é uma engenheira com capacete amarelo, camisa azul e painel solar, sem marcas. A proposta é investir na iniciativa de pesquisa e avaliar os incentivos da Lei do Bem (Lei nº 11.196/2005), conforme a elegibilidade da empresa e do projeto; não representa concessão automática de benefício por firmar parceria.
+- Natal: Sebrae RN, recebido por um consultor de negócios fictício.
+
+Mossoró liga-se a Assu, que se conecta a Angicos. São Paulo do Potengi chega a Natal passando por Macaíba. Não há ligação direta Mossoró–Angicos, Natal–São Paulo do Potengi, Caicó–Natal ou Caicó–Pau dos Ferros. Rotas só aparecem após uma parceria. Na malha do IBGE, Açu é apresentado como Assu.
+
+São 14 destinos. Cada parceria vale uma fração igual do indicador correspondente: Ciência e Cidadania têm 2 destinos, Tecnologia e Meio Ambiente têm 3, Recursos tem 4. Os percentuais acumulados são calculados a partir das quantidades e arredondados para exibição, sem acumular erros. Partidas anteriores preservam suas parcerias, com percentuais recalculados para a rede ampliada. Os cinco retratos de Natal e dos novos destinos ficam em `assets/characters/npc-expansion.png`.
