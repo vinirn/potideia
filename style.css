@@ -165,3 +165,8 @@ body{font-size:11px;line-height:1.8}.hud{gap:18px}.mission,.round{font-size:9px}
 .guide-portrait::after{content:'';position:absolute;inset:0;background:url('assets/characters/npc-atlas-v5.png') 50% 0%/500% 200% no-repeat;clip-path:inset(0 10% 0 0)}
 .damasio-portrait{clip-path:inset(0 10% 0 0)}
 .potengi-portrait{clip-path:inset(0 4% 0 0)}
+
+.brand{display:flex;flex-direction:column;align-items:flex-start;gap:4px;flex:none}
+.game-version{color:var(--dim);font-size:8px;line-height:1.5;letter-spacing:1px}
+@media(max-width:1000px){.brand{margin-right:auto}}
+@media(max-width:650px){.brand{width:100%;margin-right:0}.game-version{font-size:7px}}

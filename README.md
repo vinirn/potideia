@@ -10,6 +10,12 @@ Ao abrir o jogo, o Prof. Damásio apresenta a missão de construir um parque cie
 
 O progresso da partida — visitas, indicadores, cidade selecionada e diário — fica salvo apenas no navegador, em `localStorage`. Use **Reiniciar jogo**, em destaque no cabeçalho, para começar novamente após confirmar. O logotipo volta ao mapa sem apagar o progresso.
 
+## Versionamento
+
+A versão atual é **v0.1.0**, exibida abaixo do título POTIDEIA. `GAME_VERSION` em `app.js` é a referência usada pela interface; a [release no GitHub](https://github.com/vinirn/potideia/releases/tag/v0.1.0) usa o mesmo número. O histórico fica em [CHANGELOG.md](CHANGELOG.md).
+
+As versões seguem `vMAJOR.MINOR.PATCH`: MAJOR para mudanças incompatíveis, MINOR para funcionalidades e PATCH para correções. Ao publicar uma versão, atualize `GAME_VERSION` e o histórico, faça commit e push e publique a tag/release correspondente. A versão do jogo é independente da chave de progresso salvo no navegador.
+
 ## Mecânica da V1
 
 A partida começa com apenas Mossoró revelada. Em cada local, o menu **Firmar parceria?** abre com **Não** selecionado. Escolher **Sim** concede 1/14 do escore geral e uma fração do indicador específico, conforme o número de destinos que contribuem para ele e revela os caminhos e destinos adjacentes. Escolher **Não**, fechar a janela ou pressionar Esc volta ao mapa sem conceder pontos nem revelar conexões. É possível retornar depois e decidir novamente. Cada cidade concede pontos uma única vez; parcerias já firmadas continuam abertas para consultar o diálogo. O progresso salvo anteriormente é preservado. A navegação entre cidades acontece no mapa, após fechar a janela do local.

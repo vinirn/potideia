@@ -1,3 +1,5 @@
+const GAME_VERSION = '0.1.0';
+document.getElementById('game-version').textContent = `v${GAME_VERSION}`;
 const STORAGE_KEY = 'potideia-game-v1';
 const emptyState = () => ({ visits: 0, score: 0, selected: null, visited: new Set(), notes: [], indicators: { science: 0, technology: 0, territory: 0, citizenship: 0, economy: 0 } });
 function loadState() {
