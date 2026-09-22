@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#140d26" />
+    <title>Potideia — Raízes da Inovação</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="hud">
+        <a class="logo" href="#" aria-label="Potideia — voltar ao mapa">POTI<span>DEIA</span></a>
+        <button id="restart-game" class="restart-button" type="button">↻ Reiniciar jogo</button>
+        <div class="mission"><span class="blink">●</span> ESCORE GERAL <b id="park-score">0%</b></div>
+        <button id="toggle-sound" class="sound-toggle" type="button" aria-pressed="true">♫ Som ligado</button>
+        <div class="round">VISITAS <b id="round-number">0</b>/10</div>
+      </header>
+
+      <section class="intro-strip">
+        <p>COM A CIÊNCIA, A TERRA ÁRIDA FLORESCE.</p>
+        <span>OBJETIVO: CHEGUE A 100% EM CADA INDICADOR</span>
+      </section>
+
+      <nav class="keyboard-guide" aria-label="Como jogar">
+        <span><kbd>↑↓←→</kbd> <kbd>WASD</kbd> Caminhar</span>
+        <span><kbd>Enter</kbd> Abrir local</span>
+        <span><kbd>V</kbd> Registrar visita</span>
+        <span><kbd>Esc</kbd> Voltar ao mapa</span>
+      </nav>
+      <section class="play-area">
+        <div class="map-panel scanlines">
+          <div class="map-title"><i></i> RIO GRANDE DO NORTE <small>167 MUNICÍPIOS / MALHA IBGE 2024</small></div>
+          <div id="map-stage" class="map-stage">
+            <div class="loading">CARREGANDO TABULEIRO...</div>
+          </div>
+          <div class="map-key"><span>● Disponível</span><span class="key-selected">◎ Selecionada</span><span class="key-visited">● Visitada</span><span>Linhas: conexões do destino</span></div>
+        </div>
+
+        <aside class="command-panel">
+          <section class="city-card" id="city-card">
+            <p class="eyebrow">CIDADE SELECIONADA</p>
+            <h1 id="city-name">EXPEDIÇÃO RN</h1>
+            <p id="city-copy">Clique em um ponto pulsante para conhecer um local.</p>
+            <div class="tags" id="city-tags"><span>RAÍZES DA INOVAÇÃO</span></div>
+          </section>
+
+          <section class="resources" aria-label="Recursos da equipe">
+            <div><span>⌁</span><small>CIÊNCIA</small><b id="science">0%</b><progress id="science-progress" max="100" value="0" aria-label="Ciência"></progress></div>
+            <div><span>⚙</span><small>TECNOLOGIA</small><b id="technology">0%</b><progress id="technology-progress" max="100" value="0" aria-label="Tecnologia"></progress></div>
+            <div><span>♧</span><small>TERRITÓRIO</small><b id="territory">0%</b><progress id="territory-progress" max="100" value="0" aria-label="Território"></progress></div>
+            <div><span>♥</span><small>CIDADANIA</small><b id="citizenship">0%</b><progress id="citizenship-progress" max="100" value="0" aria-label="Cidadania"></progress></div>
+            <div><span>$</span><small>ECONOMIA</small><b id="economy">0%</b><progress id="economy-progress" max="100" value="0" aria-label="Economia"></progress></div>
+          </section>
+
+          <section class="actions">
+            <p class="eyebrow">ROTA DE INOVAÇÃO</p>
+            <button id="open-location" disabled><kbd>Enter</kbd> ABRIR LOCAL <small id="visit-effect">SELECIONE UMA CIDADE</small></button>
+          </section>
+
+
+
+        </aside>
+        <aside class="guide-window" aria-label="Guia da expedição">
+          <div id="guide-content">
+            <div class="guide-portrait" role="img" aria-label="Prof. Damásio, seu guia sorridente da INEAGRO"></div>
+            <div class="guide-copy"><p class="eyebrow">PROF. DAMÁSIO · SEU GUIA</p><p id="guide-message" role="status" aria-live="polite"></p></div>
+          </div>
+        </aside>
+      </section>
+
+      <details class="journal"><summary>Diário da turma</summary><section class="log"><p class="eyebrow">DIÁRIO DA TURMA <button id="clear-notes" title="Limpar notas">×</button></p><ol id="notes"><li>AGUARDANDO PRIMEIRA ALIANÇA...</li></ol></section></details>
+      <footer><span>Seu progresso é salvo neste navegador.</span></footer>
+    </main>
+    <p id="game-status" class="sr-only" role="status"></p>
+    <dialog id="location-dialog" class="location-dialog" aria-labelledby="dialog-city dialog-institution">
+      <button class="close-dialog" aria-label="Fechar local e voltar ao mapa">Esc ×</button>
+      <div class="scene-art" id="scene-art" aria-label="Personagem local"></div>
+      <div class="dialog-copy">
+        <p class="eyebrow" id="dialog-pole">POLO TERRITORIAL</p>
+        <h2 id="dialog-city">LOCAL</h2>
+        <section class="institution-card" aria-label="Instituição visitada">
+          <p class="eyebrow">VOCÊ ESTÁ VISITANDO</p>
+          <h3 id="dialog-institution"></h3>
+          <p id="institution-full"></p>
+          <p id="institution-affiliation"></p>
+          <a id="institution-source" target="_blank" rel="noopener noreferrer">Conhecer a instituição ↗</a>
+        </section>
+        <p id="npc-name" class="npc-name">GUIA LOCAL</p>
+        <p id="npc-speech" class="speech">“...”</p>
+        <button id="visit-location" class="visit-button">REGISTRAR VISITA <small>+50% NO INDICADOR</small></button>
+      </div>
+    </dialog>
+    <div class="crt-overlay" aria-hidden="true"></div>
+    <script src="data/rn-municipios.js"></script>
+    <script src="audio.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
