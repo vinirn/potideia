@@ -380,6 +380,13 @@ function formPartnership() {
   document.getElementById('game-status').classList.toggle('victory', won);
   focusMap();
   saveState();
+  if (won) showVictory();
+}
+function showVictory() {
+  const dialog = document.getElementById('victory-dialog');
+  if (!dialog || dialog.open) return;
+  dialog.showModal();
+  document.getElementById('victory-close').focus();
 }
 function polygonParts(geometry) { return geometry.type === 'Polygon' ? geometry.coordinates : geometry.coordinates.flat(); }
 function centroid(geometry) { const coords = polygonParts(geometry).flat(); return coords.reduce((a,p) => [a[0]+p[0],a[1]+p[1]],[0,0]).map(v=>v/coords.length); }
@@ -470,15 +477,22 @@ document.getElementById('intro-understood').addEventListener('click', () => {
   introDialog.close();
   focusMap();
 });
-document.getElementById('restart-game').addEventListener('click', () => {
-  if (!window.confirm('Reiniciar a partida? As visitas e os pontos desta partida serão apagados.')) return;
+function restartGame() {
   stopJourney();
   Object.assign(state, emptyState());
   chooseCity('Mossoró');
   document.getElementById('game-status').textContent = 'Comece por Mossoró. Abra o local e escolha se deseja firmar uma parceria.';
   document.getElementById('game-status').classList.remove('victory');
   showIntroduction();
+}
+document.getElementById('restart-game').addEventListener('click', () => {
+  if (!window.confirm('Reiniciar a partida? As visitas e os pontos desta partida serão apagados.')) return;
+  restartGame();
 });
+const victoryDialog = document.getElementById('victory-dialog');
+victoryDialog.addEventListener('cancel', event => event.preventDefault());
+document.getElementById('victory-close').addEventListener('click', () => { victoryDialog.close(); focusMap(); });
+document.getElementById('victory-restart').addEventListener('click', () => { victoryDialog.close(); restartGame(); });
 document.addEventListener('keydown', event => {
   if (event.altKey || event.ctrlKey || event.metaKey || event.repeat || event.target.closest('input, textarea, select, [contenteditable="true"]')) return;
   if (journey.active) {
