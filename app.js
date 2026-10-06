@@ -1,26 +1,7 @@
 const GAME_VERSION = '0.1.0';
 document.getElementById('game-version').textContent = `v${GAME_VERSION}`;
-const STORAGE_KEY = 'potideia-game-v1';
 const emptyState = () => ({ visits: 0, score: 0, selected: null, visited: new Set(), notes: [], indicators: { science: 0, technology: 0, territory: 0, citizenship: 0, economy: 0 } });
-function loadState() {
-  try {
-    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    if (!saved) return emptyState();
-    const state = emptyState();
-    state.visits = Number.isInteger(saved.visits) ? saved.visits : 0;
-    state.score = Number.isInteger(saved.score) ? saved.score : 0;
-    state.selected = typeof saved.selected === 'string' ? saved.selected : null;
-    state.visited = new Set(Array.isArray(saved.visited) ? saved.visited : []);
-    state.notes = Array.isArray(saved.notes) ? saved.notes.filter(note => typeof note === 'string') : [];
-    Object.keys(state.indicators).forEach(key => state.indicators[key] = Number.isInteger(saved.indicators?.[key]) ? saved.indicators[key] : 0);
-    return state;
-  } catch { return emptyState(); }
-}
-const state = loadState();
-function saveState() {
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...state, visited: [...state.visited] })); }
-  catch { document.getElementById('game-status').textContent = 'O navegador não permitiu salvar. Você pode continuar nesta sessão.'; }
-}
+const state = emptyState();
 
 const cities = {
   'Mossoró': { pole: 'ASSU–MOSSORÓ · INÍCIO', host: 'UFERSA MOSSORÓ', indicator: 'technology', label: 'TECNOLOGIA', npc: 'PROFA. LIA', speech: '“O parque nasce da colaboração. Antes de avançar, conheça Caraúbas e Angicos: a UFERSA é uma rede.”', scene: 'mossoro', adjacent: ['Caraúbas', 'Assu'], tags: ['PARQUE', 'PRIORIDADE UFERSA'] },
@@ -216,7 +197,6 @@ function updateUI() {
 }
 function note(message) {
   state.notes.unshift(message);
-  saveState();
 }
 const journey = { active: false, frame: null, centers: new Map() };
 function placeTraveler(x, y, stride = 0) {
@@ -304,7 +284,6 @@ function selectCity(name, el, open = false) {
   document.getElementById('city-copy').textContent = `${institutions[name].short}${state.visited.has(name) ? '' : ' · +' + rewardFor(city) + '% ' + city.label}`;
   document.getElementById('city-tags').innerHTML = [`+${rewardFor(city)}% ${city.label}`, ...city.tags].map(t => `<span>${t}</span>`).join('');
   updateUI();
-  saveState();
   if (open) openLocation();
 }
 function characterArt(city) {
@@ -379,7 +358,6 @@ function formPartnership() {
     : `✓ +${rewardFor(city)}% ${city.label.toLowerCase()}! ${newlyUnlocked.length ? 'Novos destinos: ' + newlyUnlocked.join(' e ') + '.' : 'Escolha outro destino revelado.'} Faltam ${totalCities - state.visits} visitas.`;
   document.getElementById('game-status').classList.toggle('victory', won);
   focusMap();
-  saveState();
   if (won) showVictory();
 }
 function showVictory() {
