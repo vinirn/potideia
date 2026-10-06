@@ -244,6 +244,10 @@ function destinationInDirection(key) {
 }
 function chooseCity(name, el, open = false) {
   if (journey.active || !cities[name] || !unlockedCities().has(name)) return;
+  if (state.selected && name !== state.selected && !cities[state.selected].adjacent.includes(name)) {
+    guide(`Para chegar a ${name} você precisa atravessar as cidades vizinhas, uma de cada vez.`);
+    return;
+  }
   const path = state.selected && name !== state.selected ? routeTo(name) : null;
   if (!path || path.length < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     selectCity(name, el, open); return;
