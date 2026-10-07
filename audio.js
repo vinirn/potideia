@@ -79,7 +79,7 @@ const gameAudio = (() => {
         const AudioContext = window.AudioContext || window.webkitAudioContext;
         if (!AudioContext) return;
         context = new AudioContext(); master = context.createGain();
-        master.gain.value = .35; master.connect(context.destination);
+        master.gain.value = .7; master.connect(context.destination);
       }
       if (context.state === 'suspended') await context.resume();
       if (!ambience) setScene(currentCity);
@@ -100,7 +100,7 @@ const gameAudio = (() => {
     try { localStorage.setItem('potideia-sound', enabled ? 'on' : 'off'); } catch {}
     if (enabled) {
       await activate();
-      if (master) master.gain.setTargetAtTime(.35, context.currentTime, .04);
+      if (master) master.gain.setTargetAtTime(.7, context.currentTime, .04);
       setScene(currentCity);
     } else {
       clearAmbience(); ambience = null;
