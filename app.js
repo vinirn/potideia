@@ -253,6 +253,7 @@ function chooseCity(name, el, open = false) {
   if (!path || path.length < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     selectCity(name, el, open); return;
   }
+  const lightMotion = window.matchMedia('(pointer: coarse), (max-width: 900px)').matches;
   journey.active = true;
   guide(`A caminho de ${name}! Espere o personagem chegar antes de escolher a próxima direção.`);
   document.querySelector('.play-area').classList.add('traveling');
@@ -260,10 +261,12 @@ function chooseCity(name, el, open = false) {
   function step(time) {
     if (!journey.active) return;
     if (startTime === null) startTime = time;
-    if (time - lastStep > 180) { gameAudio.effect('step'); lastStep = time; }
+    if (time - lastStep > (lightMotion ? 240 : 180)) { gameAudio.effect('step'); lastStep = time; }
     const [x1, y1] = journey.centers.get(path[segment]);
     const [x2, y2] = journey.centers.get(path[segment + 1]);
-    const duration = Math.max(350, Math.hypot(x2-x1, y2-y1) * 4);
+    const duration = lightMotion
+      ? Math.max(180, Math.hypot(x2-x1, y2-y1) * 1.6)
+      : Math.max(350, Math.hypot(x2-x1, y2-y1) * 4);
     const progress = Math.min(1, (time - startTime) / duration);
     placeTraveler(x1 + (x2-x1) * progress, y1 + (y2-y1) * progress, Math.floor(time / 120) % 2 ? 2 : -2);
     if (progress === 1) {
