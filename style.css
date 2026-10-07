@@ -23,6 +23,7 @@ html{user-select:none;-webkit-user-select:none;caret-color:transparent;cursor:de
 .institution-card{border-left:3px solid var(--cyan);padding:4px 0 6px 14px;margin:0 0 20px}.institution-card h3{font-size:25px;color:var(--cyan);margin:0 0 4px;line-height:1.2}.institution-card p:not(.eyebrow){font-size:14px;line-height:1.4;color:var(--dim);margin:3px 0}.institution-card a{display:inline-block;color:var(--cyan);font-size:12px;margin-top:5px}.city-reward{fill:var(--green);font:600 10px system-ui,sans-serif;paint-order:stroke;stroke:#14172b;stroke-width:4px;stroke-linejoin:round;pointer-events:none}
 
 #traveler{pointer-events:none;filter:drop-shadow(0 1px 2px #000)}.traveling .city-node,.traveling .municipality{cursor:wait}.traveling .actions{border-color:var(--cyan)}
+.map-tip{pointer-events:none;filter:drop-shadow(0 2px 4px #000a)}.map-tip-bounce{animation:map-tip-bounce 1.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.map-tip-bubble{fill:var(--yellow);stroke:#14172b;stroke-width:1.5}.map-tip-text{fill:#211a30;font:700 12px system-ui,sans-serif}.map-tip.hidden-route{display:none}@keyframes map-tip-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}@media(prefers-reduced-motion:reduce){.map-tip-bounce{animation:none}}
 
 .sound-toggle{padding:7px 10px;color:var(--cyan);background:#65e5ed0c;border:1px solid #65e5ed44;border-radius:7px;font-size:12px;white-space:nowrap}.sound-toggle[aria-pressed="false"]{color:var(--dim)}
 

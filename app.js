@@ -193,7 +193,8 @@ function updateUI() {
     line.classList.toggle('hidden-route', !revealed.has([line.dataset.from, line.dataset.to].sort().join('|')));
     line.classList.toggle('selected', [line.dataset.from, line.dataset.to].includes(state.selected));
   });
-
+  const tip = document.getElementById('first-city-tip');
+  if (tip) tip.classList.toggle('hidden-route', state.visited.has('Mossoró'));
 }
 function note(message) {
   state.notes.unshift(message);
@@ -412,6 +413,12 @@ function initMap(data) {
     leader.dataset.name = name;
     svg.insertBefore(leader, svg.querySelector('.city-node'));
   });
+  const [startX, startY] = centers.get('Mossoró');
+  const tip = document.createElementNS(svg.namespaceURI, 'g');
+  tip.id = 'first-city-tip'; tip.setAttribute('class', 'map-tip'); tip.setAttribute('aria-hidden', 'true');
+  tip.setAttribute('transform', `translate(${startX}, ${startY - 32})`);
+  tip.innerHTML = '<g class="map-tip-bounce"><rect x="-110" y="-42" width="220" height="34" rx="8" ry="8" class="map-tip-bubble"/><polygon points="-7,-8 7,-8 0,0" class="map-tip-bubble"/><text x="0" y="-21" text-anchor="middle" class="map-tip-text">Clique em Mossoró para começar</text></g>';
+  svg.append(tip);
   const traveler = document.createElementNS(svg.namespaceURI, 'g');
   traveler.id = 'traveler'; traveler.setAttribute('aria-hidden', 'true');
   // A tiny code-native pixel sprite: backpack, face, shirt and alternating boots.
