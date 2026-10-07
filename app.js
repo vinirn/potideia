@@ -503,7 +503,7 @@ document.addEventListener('keydown', event => {
   else if (['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp', 'w', 'a', 's', 'd'].includes(navigationKey)) {
     event.preventDefault();
     const destination = destinationInDirection(navigationKey);
-    if (destination) chooseCity(destination);
+    if (destination) chooseCity(destination, null, state.visited.has(destination));
     else guide('Ainda não há caminho revelado nessa direção. As linhas no mapa mostram as conexões disponíveis neste momento.');
     focusMap();
   } else if (event.key === 'Enter' && !event.target.closest('button, a, [role="button"]')) { event.preventDefault(); openLocation(); }
