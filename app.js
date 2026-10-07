@@ -417,7 +417,7 @@ function initMap(data) {
   const tip = document.createElementNS(svg.namespaceURI, 'g');
   tip.id = 'first-city-tip'; tip.setAttribute('class', 'map-tip'); tip.setAttribute('aria-hidden', 'true');
   tip.setAttribute('transform', `translate(${startX}, ${startY - 32})`);
-  tip.innerHTML = '<g class="map-tip-bounce"><rect x="-110" y="-42" width="220" height="34" rx="8" ry="8" class="map-tip-bubble"/><polygon points="-7,-8 7,-8 0,0" class="map-tip-bubble"/><text x="0" y="-21" text-anchor="middle" class="map-tip-text">Clique em Mossoró para começar</text></g>';
+  tip.innerHTML = '<g class="map-tip-bounce"><rect x="-150" y="-50" width="300" height="42" rx="10" ry="10" class="map-tip-bubble"/><polygon points="-8,-8 8,-8 0,0" class="map-tip-bubble"/><text x="0" y="-23" text-anchor="middle" class="map-tip-text">Clique em Mossoró para começar</text></g>';
   svg.append(tip);
   const traveler = document.createElementNS(svg.namespaceURI, 'g');
   traveler.id = 'traveler'; traveler.setAttribute('aria-hidden', 'true');
@@ -464,6 +464,9 @@ function showIntroduction() {
 introDialog.addEventListener('cancel', event => event.preventDefault());
 document.getElementById('intro-understood').addEventListener('click', () => {
   introDialog.close();
+  if (document.documentElement.requestFullscreen && !document.fullscreenElement) {
+    document.documentElement.requestFullscreen().catch(() => {});
+  }
   focusMap();
 });
 function restartGame() {
